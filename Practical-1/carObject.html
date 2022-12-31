@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        function Car(carModelName, carColor, carPrice, carSpeed) {
+  this.carModelName = carModelName;
+  this.carColor = carColor;
+  this.carPrice = carPrice;
+  this.carSpeed = carSpeed;
+
+  this.displaySpeed = function() {
+    document.write(`Current speed: ${this.carSpeed} km/h`);
+    document.write("<br>");
+  }
+  
+  this.increaseSpeed = function(s) {
+    this.carSpeed += s;
+    document.write(`Increased speed by ${s} km/h`);
+    document.write("<br>");
+  }
+  
+  this.decreaseSpeed = function(s) {
+    this.carSpeed -= s;
+    document.write(`Decreased speed by ${s} km/h`);
+    document.write("<br>");
+  }
+}
+
+const car1 = new Car("Honda Civic", "Red", 30000, 0);
+car1.displaySpeed();
+car1.increaseSpeed(20);
+car1.displaySpeed();
+car1.decreaseSpeed(10);
+car1.displaySpeed();
+
+    </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Number Validation</title>
+</head>
+<body>
+    Mobile No. :  <input type="text" id="mobileInput">
+  <script>
+    // Get the input element
+    var input = document.getElementById("mobileInput");
+    
+    // Add an event listener for when the input value changes
+    input.addEventListener("input", function() {
+      // Get the value of the input
+      var value = input.value;
+      
+      // Validate the mobile number
+      if (value.length == 10) {
+          document.body.style.backgroundColor = "yellow";
+          alert("Mobile number is complete!");
+        // If the mobile number is less than 10 digits, set the background color to red
+    } else {
+        document.body.style.backgroundColor = "red";
+      }
+    });
+  </script>
+</body>
+</html>
+
+<!-- or -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Mobile No. : <input type="number" id="num" oninput="change()">    
+</body>
+<script>
+    function change()
+    {
+        var mn = document.getElementById("num").value;
+        if(mn.length == 10)
+        {
+            document.body.style.backgroundColor="yellow";
+            alert("ok");
+        }
+        else
+        {
+                document.body.style.backgroundColor="red";
+        }
+    }
+</script>
+</html> -->

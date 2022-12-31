@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Color name : <input type="text" id="col" onmouseout="mouseOut()">
+</body>
+<script>
+    function mouseOut() {
+        var color=document.getElementById("col").value;
+        document.body.style.backgroundColor = color;
+    }
+</script>
+</html> 
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changer</title>
+</head>
+<body>
+    Color name : <input type="text" id="colorInput">
+  <script>
+    // Get the input element
+    var input = document.getElementById("colorInput");
+    
+    // Add an event listener for when the input loses focus
+    input.addEventListener("mouseout", function() {
+      // Get the value of the input
+      var color = input.value;
+      
+      // Set the body's background color to the entered color
+      document.body.style.backgroundColor = color;
+    });
+  </script>
+</body>
+</html> -->
