@@ -1,0 +1,57 @@
+<!-- Write HTML/Javascript code to make an animation for displaying a set of images. It takes 
+frequency (in milliseconds) of image repetition as input from the user. Also, it shows a 
+button to start/stop (a single button which toggles) the animation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="imageContainer">
+        <img id="myImage" src="image1.jpg" alt="img1">
+      </div>
+      <input type="number" id="frequency" placeholder="Enter frequency in ms">
+      <button id="startStopButton">Start</button>
+      
+</body>
+<script>
+    var images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+    var i = 0;
+    var image = document.getElementById("myImage");
+    var intervalId;
+    var button = document.getElementById("startStopButton");
+    var frequencyInput = document.getElementById("frequency");
+  
+    function changeImage() {
+      image.src = images[i];
+      i = (i + 1) % images.length;
+    }
+  
+    function startAnimation() {
+      var frequency = frequencyInput.value;
+      if (!frequency) {
+        alert("Please enter a frequency");
+        return;
+      }
+      intervalId = setInterval(changeImage, frequency);
+      button.innerHTML = "Stop";
+    }
+  
+    function stopAnimation() {
+      clearInterval(intervalId);
+      button.innerHTML = "Start";
+    }
+  
+    button.addEventListener("click", function() {
+      if (button.innerHTML === "Start") {
+        startAnimation();
+      } else {
+        stopAnimation();
+      }
+    });
+  </script>
+  
+</html>
