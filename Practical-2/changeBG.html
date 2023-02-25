@@ -1,1 +1,28 @@
+<!-- Write HTML/Javacript code to change the background color of the div element 
+periodically. For example, every 30 seconds it changes the background color. Hint: use the 
+SetInterval function.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">my name is henil Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe eligendi sed ratione, commodi laudantium aliquam ea aliquid similique neque quasi iusto optio magni est rerum nobis facere itaque labore eveniet sit iure! Pariatur, totam cum, neque architecto eos et sapiente quod laboriosam tempore commodi saepe voluptatem tempora magni porro! Nisi eaque ducimus qui quibusdam ad aliquam rerum, laborum consectetur eos sit eligendi assumenda voluptate sint voluptatem est eius facilis. Expedita adipisci aliquam quos quidem ipsum rerum deleniti. Odit obcaecati enim est placeat in corporis voluptas illum, nulla similique repellendus perspiciatis aperiam. Culpa rem accusantium repellat adipisci quisquam vel voluptates, cupiditate est non impedit error saepe doloribus corporis, fuga nostrum quasi atque minima natus nisi optio et obcaecati repudiandae. Quibusdam, totam, quisquam voluptatibus ipsa illum ratione maxime laudantium omnis, quaerat mollitia nostrum fuga! Repellat exercitationem voluptas ab nostrum minima fugit consectetur impedit temporibus, culpa harum, quia tempore, ipsam reiciendis dolores sequi assumenda asperiores laudantium alias voluptates quo rem quod perspiciatis aliquid! Repellat officia, ducimus numquam quas quam natus pariatur eos nihil perferendis dignissimos possimus, magni mollitia facere animi nobis recusandae officiis autem nemo repudiandae. Suscipit autem ad nihil quibusdam magni unde nam officiis hic. Doloremque, nesciunt! Rem quis debitis, eveniet incidunt in laudantium dicta magni provident saepe! Assumenda eveniet modi asperiores saepe inventore at labore eligendi, cum itaque quia provident praesentium ipsum debitis!</div>
+</body>
+<script>
+    // array of colors to use for the background
+    var colors = ["red", "green", "blue","yellow","skyblue"];
+    var i = 0;
+    // function to change the background color
+    function changeColor() {
+      var div = document.getElementById("myDiv");
+      div.style.background = colors[i];
+      i = (i + 1) % colors.length;
+    }
+    setInterval(changeColor, 2000); // call the function every 5 seconds
+</script>
 
+</html>
