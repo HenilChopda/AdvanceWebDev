@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Student Details</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<table>
+		<thead>
+			<tr>
+				<th>Enrollment Number</th>
+				<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="student in students" ng-click="getStudentDetails(student.enrollment)">
+				<td>{{ student.enrollment }}</td>
+				<td>{{ student.name }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-if="selectedStudent">
+		<h2>{{ selectedStudent.name }}</h2>
+		<p>Enrollment Number: {{ selectedStudent.enrollment }}</p>
+		<p>City: {{ selectedStudent.city }}</p>
+		<p>Address: {{ selectedStudent.address }}</p>
+		<p>Pincode: {{ selectedStudent.pincode }}</p>
+	</div>
+
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope, $http) {
+			$scope.students = [];
+			$http.get("students.xml").then(function(response) {
+				var xml = response.data;
+				var students = [];
+				$(xml).find("student").each(function() {
+					var student = {
+						enrollment: $(this).find("enrollment").text(),
+						name: $(this).find("name").text(),
+						city: $(this).find("city").text(),
+						address: $(this).find("address").text(),
+						pincode: $(this).find("pincode").text()
+					};
+					students.push(student);
+				});
+				$scope.students = students;
+			});
+
+			$scope.getStudentDetails = function(enrollment) {
+				$http.get("students.xml").then(function(response) {
+					var xml = response.data;
+					$(xml).find("student").each(function() {
+						if ($(this).find("enrollment").text() == enrollment) {
+							$scope.selectedStudent = {
+								enrollment: $(this).find("enrollment").text(),
+								name: $(this).find("name").text(),
+								city: $(this).find("city").text(),
+								address: $(this).find("address").text(),
+								pincode: $(this).find("pincode").text()
+							};
+						}
+					});
+				});
+			};
+		});
+	</script>
+</body>
+</html>
